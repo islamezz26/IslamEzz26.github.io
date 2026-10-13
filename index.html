@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Islam Ezz | Portfolio</title>
+  <!-- خط Tajawal الأنيق -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- أيقونات FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg-color: #0c0f14;
+      --card-bg: #151b23;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #222d3d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(12, 15, 20, 0.85);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 3rem 1.5rem;
+    }
+
+    section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      right: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      border-right: 2px solid var(--border);
+      margin-right: 1rem;
+      padding-right: 1.5rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      right: -1.95rem;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .timeline-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.3rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .project-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Form Section */
+    .form-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #090c10;
+      color: var(--text);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+    }
+
+    button.btn-submit {
+      width: 100%;
+      background: var(--accent);
+      color: #0c0f14;
+      font-weight: 700;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+
+    button.btn-submit:hover {
+      background: var(--accent-hover);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .social-links { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="#" class="logo">إسلام <span>عز</span></a>
+      <ul class="nav-links">
+        <li><a href="#timeline">الخبرات</a></li>
+        <li><a href="#work">الأعمال</a></li>
+        <li><a href="#request">طلب خدمة</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    
+    <!-- Hero / Links -->
+    <section class="hero">
+      <h1>إسلام عز</h1>
+      <p>مهندس عمليات وبترول | تحليل بيانات ومحتوى تقني</p>
+      
+      <div class="social-links">
+        <a href="https://github.com/islamezz26" target="_blank" class="social-btn">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/islam-ezz-kamel" target="_blank" class="social-btn">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://youtube.com/@esl-ezz?si=s8MottdFHpEB4Qbz" target="_blank" class="social-btn">
+          <i class="fa-brands fa-youtube" style="color: #ef4444;"></i> YouTube
+        </a>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline">
+      <h2 class="section-title">المسار والخبرة</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">الحالي</div>
+          <div class="timeline-title">مهندس عمليات وتشغيل (Process Engineer)</div>
+          <div class="timeline-desc">تشغيل ومتابعة كفاءة الوحدات الإنتاجية وتحليل بارامترات العمليات والضغوط ودرجات الحرارة.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">سابقاً</div>
+          <div class="timeline-title">عمليات الحفر والمواقع (Rig Operations)</div>
+          <div class="timeline-desc">الخبرة الميدانية في أجهزة الحفر والتعامل مع العمليات المباشرة والأنظمة التشغيلية.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">مستمر</div>
+          <div class="timeline-title">تحليل البيانات والمحاكاة الهندسية</div>
+          <div class="timeline-desc">استخدام بايثون، إكسيل المتقدم، وأدوات المحاكاة ونمذجة البيانات لرفع كفاءة القرارات التشغيلية.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work / Projects -->
+    <section id="work">
+      <h2 class="section-title">نماذج الأعمال</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div>
+            <h3>مشاريع وأكواد برمجية</h3>
+            <p>مستودعات برمجية، أدوات أتمتة، ومشاريع تحليل البيانات على GitHub.</p>
+          </div>
+          <a href="https://github.com/islamezz26" target="_blank" class="project-link">
+            استعراض المشاريع <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3>المحتوى والتحليل المرئي</h3>
+            <p>شروحات وتحليلات تكتيكية وتقنية مبسطة على القناة الرسمية.</p>
+          </div>
+          <a href="https://youtube.com/@esl-ezz?si=s8MottdFHpEB4Qbz" target="_blank" class="project-link">
+            مشاهدة الفيديوهات <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3>الاستشارات والحلول الهندسية</h3>
+            <p>تحليل مشاكل التشغيل، أوراق العمل، وتصميم لوحات التحكم التحليلية.</p>
+          </div>
+          <a href="#request" class="project-link">
+            طلب استشارة <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Request Form -->
+    <section id="request">
+      <h2 class="section-title">طلب خدمة / مشروع</h2>
+      <div class="form-box">
+        <!-- يتم توجيه الطلب إلى بريدك المعتمد -->
+        <form action="https://formspree.io/f/xanywkbd" method="POST">
+          <input type="hidden" name="_to" value="islaamezz26@gmail.com">
+          
+          <div class="form-group">
+            <label for="name">الاسم / الجهة</label>
+            <input type="text" id="name" name="name" required placeholder="مثال: أحمد محمد" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">بريدك الإلكتروني للتواصل</label>
+            <input type="email" id="email" name="email" required placeholder="name@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="service_type">نوع الطلب</label>
+            <select id="service_type" name="service_type">
+              <option value="استشارة هندسية">استشارة هندسية / عمليات</option>
+              <option value="تحليل بيانات / داشبورد">تحليل بيانات أو لوحات تحكم (Excel / Python)</option>
+              <option value="تعاون تقني أو محتوى">تعاون إعلامي أو محتوى</option>
+              <option value="طلب آخر">طلب مخصص آخر</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">تفاصيل الطلب</label>
+            <textarea id="message" name="message" rows="4" required placeholder="اكتب نبذة موجزة عما تحتاجه..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <i class="fa-paper-plane fa-solid" style="margin-left: 6px;"></i> إرسال الطلب
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Islam Ezz. جميع الحقوق محفوظة.</p>
+  </footer>
+
+</body>
+</html>
